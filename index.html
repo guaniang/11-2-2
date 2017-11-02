@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+</head>
+<style type="text/css">
+	.center{
+		width: 500px;
+	}
+	.center a{
+		/*width: 400px;*/
+		height: 50px;
+		line-height: 50px;
+		float: left;
+		text-align: center;
+		display: block;
+	} 
+	.center span{
+		/*width: 100px;*/
+		height: 50px;
+		line-height: 50px;
+		float: left;
+		text-align: center;
+		display: block;
+	} 
+</style>
+<body>
+		<input type="text" id="inp1"/>
+    <input type="text" id="inp2"/>
+    <input type="text" id="inp3"/>
+    <input type="submit" id="sub" value="提交" />
+    
+</body>
+</html>
+<script>
+        $(function(){
+        	$('#sub').click(function(){
+        		
+        		var name=$('#inp1').val();
+   			var title=$('#inp2').val();
+   			var sj=$('#inp3').val();
+        	$.ajax({
+        		url:"http://localhost:3000/item/zhen",
+        		type:"post",
+        		dataType:'json',
+        		data:{
+        			name:name,
+        			title:title,
+        			sj:sj
+        		},
+        		success:function(data){
+        			console.log(data)
+        			}
+        	});
+        	})
+ 			
+        	
+        })
+       
+</script>
